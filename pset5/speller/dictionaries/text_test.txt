@@ -1,0 +1,8 @@
+foo
+foO
+fOo
+fOO
+Foo
+FoO
+FOo
+FOO
