@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+</style>
+
+    <table style="width:100%">
+            <tr>
+                <th> </th>
+                <th>0</th>
+                {% for c in s2 %}
+                <th>{{ c }}</th>
+                {% endfor %}
+            </tr>
+
+            {% for a in matrix %}
+            <tr>
+                {% if loop.index - 1 == 0 %}
+                <th>0</th>
+                {% else %}
+                <th>{{ s1[loop.index - 2] }}</th>
+                {% endif %}
+                {% for b in a %}
+                    <td>{{ b[0] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+
+    </table>
+
+
+{% endblock %}
