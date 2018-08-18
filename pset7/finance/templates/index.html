@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Protfolio
+{% endblock %}
+
+{% block main %}
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border-top: 1px solid #dddddd;
+    text-align: left;
+    padding: 15px;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+    <table width=100%>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Shares</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <td colspan="4"></td>
+            <td>{{ final }}</td>
+        </tfoot>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                {% for key in row %}
+                <td>{{ row[key] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td colspan="3"></td>
+                <td>{{ cash }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

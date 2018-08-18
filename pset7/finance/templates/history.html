@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border-top: 1px solid #dddddd;
+    text-align: left;
+    padding: 15px;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+    <table width=100%>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row["symbol"] }}</td>
+                <td>{{ row["shares"] }}</td>
+                <td>{{ row["price"] }}</td>
+                <td>{{ row["time"] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
